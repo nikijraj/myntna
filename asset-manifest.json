@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/myntna/static/css/main.79238568.css",
-    "main.js": "/myntna/static/js/main.877b2e32.js",
+    "main.js": "/myntna/static/js/main.96148af7.js",
     "static/js/787.953d0cca.chunk.js": "/myntna/static/js/787.953d0cca.chunk.js",
     "index.html": "/myntna/index.html",
     "main.79238568.css.map": "/myntna/static/css/main.79238568.css.map",
-    "main.877b2e32.js.map": "/myntna/static/js/main.877b2e32.js.map",
+    "main.96148af7.js.map": "/myntna/static/js/main.96148af7.js.map",
     "787.953d0cca.chunk.js.map": "/myntna/static/js/787.953d0cca.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.79238568.css",
-    "static/js/main.877b2e32.js"
+    "static/js/main.96148af7.js"
   ]
 }
