@@ -14,8 +14,7 @@ class App extends Component {
             choices: null,      
             brand_choices: [],
             gender_choices: [],      
-            prod_choices: [],
-            //options: [{name: 'Unisex', id: 10},{name: 'Girls', id: 2},{name: "Women", id: 3}],
+            prod_choices: [],        
             gender: categories["Gender"],
             brands: categories["Brands"],
             prod_options: categories["Products"],
@@ -25,16 +24,9 @@ class App extends Component {
         this.onRemove = this.onRemove.bind(this)
     }
 
-    getSelected() {
-        //this.multiselectRef.current.getSelectedItems();
-        alert(this.multiselectRef.current.getSelectedItems());
-    }
-
     searchSpace=(event)=>{
-        //if(event.keyCode == 13){
-            let keyword = event.target.value;
-            this.setState({search:keyword})
-        //}
+        let keyword = event.target.value;
+        this.setState({search:keyword})
     }
 
     onSelect(selectedList, selectedItem) {
@@ -53,24 +45,6 @@ class App extends Component {
             plist.push(selectedItem.name);
             this.setState({prod_choices:plist});            
         }
-        /*
-        let choicelist = this.state.choices 
-        if(choicelist==null) {
-            let keylist = selectedList.map(item => item.name);
-            this.setState({choices:keylist});
-        }
-        else {
-            for(let i =0;i<selectedList.length;i++){
-                if(choicelist.includes(selectedList[i].name)==false) {
-                    alert("brand");
-                    choicelist.push(selectedList[i].name);
-                }
-            }        
-            this.setState({choices:choicelist});
-        }
-        //alert(blist);
-        //alert(glist);
-        */
         this.setState({search:null});        
     }
 
@@ -101,49 +75,33 @@ class App extends Component {
             }                        
             this.setState({prod_choices:plist});            
         }
-        /*
-            let keylist = selectedList.map(item => item.name);
-            //alert(selectedList.length==0);
-            if(selectedList.length==0)
-                this.setState({choices:null});    
-            else
-                this.setState({choices:keylist});
-            this.setState({search:null});           
-        */
     }
 
     render() {
         const {catalogue} = this.state;
         const products = catalogue["products"];  
-        //var brand_filt_count =
         const brandFilt = products.filter((product)=>{
-            //let choicelist = this.state.choices 
             let brandlist = this.state.brand_choices
-            //if(choicelist == null)
             if(brandlist.length==0)
                 return product
             else if(brandlist.includes(product.brand))
                 return product
         });
         const genderFilt = brandFilt.filter((product)=>{
-            //let choicelist = this.state.choices 
             let genlist = this.state.gender_choices
-            //if(choicelist == null)
             if(genlist.length==0)
                 return product
             else if(genlist.includes(product.gender))
                 return product
         });
         const prodFilt = genderFilt.filter((product)=>{
-            //let choicelist = this.state.choices 
             let prodlist = this.state.prod_choices
-            //if(choicelist == null)
             if(prodlist.length==0)
                 return product
             else if(prodlist.includes(product.category))
                 return product
         });
-        const items = /*products*/prodFilt.filter((product)=>{
+        const items = prodFilt.filter((product)=>{
             if(this.state.search == null)
                 return product
             else if(product.productName.toLowerCase().includes(this.state.search.toLowerCase()) || product.brand.toLowerCase().includes(this.state.search.toLowerCase())){
@@ -165,21 +123,21 @@ class App extends Component {
                     ref={this.multiselectRef} />
             </div><div>
                     <Multiselect
-                        options={this.state.gender} // Options to display in the dropdown
-                        selectedValues={this.state.selectedValue} // Preselected value to persist in dropdown
-                        onSelect={this.onSelect} // Function will trigger on select event
-                        onRemove={this.onRemove} // Function will trigger on remove event
-                        displayValue="name" // Property name to display in the dropdown options
+                        options={this.state.gender} 
+                        selectedValues={this.state.selectedValue}
+                        onSelect={this.onSelect} 
+                        onRemove={this.onRemove} 
+                        displayValue="name" 
                         placeholder="Select Gender"
                         showCheckbox={true}
                         ref={this.multiselectRef} />
                 </div><div>
                     <Multiselect
-                        options={this.state.brands} // Options to display in the dropdown
-                        selectedValues={this.state.selectedValue} // Preselected value to persist in dropdown
-                        onSelect={this.onSelect} // Function will trigger on select event
-                        onRemove={this.onRemove} // Function will trigger on remove event
-                        displayValue="name" // Property name to display in the dropdown options
+                        options={this.state.brands} 
+                        selectedValues={this.state.selectedValue}
+                        onSelect={this.onSelect} 
+                        onRemove={this.onRemove} 
+                        displayValue="name" 
                         placeholder="Select Brands"
                         showCheckbox={true}
                         ref={this.multiselectRef} />
