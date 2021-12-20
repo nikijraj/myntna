@@ -1,3 +1,19 @@
+.title{
+  font-size: 18pt;
+  color: blueviolet;
+}
+
+.item{
+  margin: 10px;
+  font-size: 20pt;
+  color: crimson;
+}
+
+.body{
+  font-size: 16pt;
+  color: black;
+}
+
 .App {
   text-align: center;
 }
@@ -26,6 +42,10 @@
 
 .App-link {
   color: #61dafb;
+}
+
+.header{
+  color: crimson;
 }
 
 @keyframes App-logo-spin {
