@@ -141,7 +141,9 @@ class App extends Component {
                         placeholder="Select Brands"
                         showCheckbox={true}
                         ref={this.multiselectRef} />
-                </div><div>
+                </div>
+                <br/>
+                <div>
                     <input type="text" placeholder="Search Items" onChange={(e) => this.searchSpace(e)} />
                 </div><div className="item">
                     {items.map(product => (
