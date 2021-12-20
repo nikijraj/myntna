@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import {useState} from 'react';
 import './App.css';
 import catalogue from './components/catalogue.js';
 import categories from './components/categories.js';
@@ -57,7 +56,6 @@ class App extends Component {
                 blist.splice(index, 1);
             }            
             this.setState({brand_choices:blist});
-            alert(this.state.brand_choices);
         }
         else if(removedItem.type=='gender'){
             var glist = this.state.gender_choices;
@@ -142,7 +140,7 @@ class App extends Component {
                         showCheckbox={true}
                         ref={this.multiselectRef} />
                 </div>
-                <br/>
+                <hr/>
                 <div>
                     <input type="text" placeholder="Search Items" onChange={(e) => this.searchSpace(e)} />
                 </div><div className="item">
