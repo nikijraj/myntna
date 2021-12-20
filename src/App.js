@@ -49,7 +49,6 @@ class App extends Component {
 
     onRemove(selectedList, removedItem) {
         if(removedItem.type=='brand'){
-            alert(this.state.brand_choices);
             var blist = this.state.brand_choices;
             const index = blist.indexOf(removedItem.name);
             if (index > -1) {
